@@ -30,7 +30,7 @@ export const buildMelhorEnvioPayload = (order, sender, packageSettings) => {
     to: {
       name: order.name,
       phone: cleanDoc(order.phone) || cleanDoc(sender.phone),
-      email: order.email || sender.email || 'simaocardsoficial@gmail.com',
+      email: order.email || sender.email || 'comprador@ligapokemon.com.br',
       document: cleanToDoc, // Precisa ser um CPF com dígito verificador válido
       address: order.address,
       complement: order.complement || '',
