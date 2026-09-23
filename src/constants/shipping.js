@@ -7,19 +7,22 @@ export const SERVICES = [
 ];
 
 export const DEFAULT_SENDER = {
-  name: 'PokeStore Brasil TCG',
-  company: 'PokeStore Colecionáveis LTDA',
-  document: '32.145.987/0001-50',
-  email: 'contato@pokestorebrasil.com.br',
-  phone: '11988887777',
-  postal_code: '01310-100',
-  address: 'Avenida Paulista',
-  number: '1000',
-  complement: 'Sala 42',
-  district: 'Bela Vista',
-  city: 'São Paulo',
-  state_abbr: 'SP',
+  name: import.meta.env.VITE_SENDER_NAME || 'PokeStore Brasil TCG',
+  company: import.meta.env.VITE_SENDER_COMPANY || 'PokeStore Colecionáveis LTDA',
+  document: import.meta.env.VITE_SENDER_DOCUMENT || '32.145.987/0001-50',
+  email: import.meta.env.VITE_SENDER_EMAIL || 'contato@pokestorebrasil.com.br',
+  phone: import.meta.env.VITE_SENDER_PHONE || '11988887777',
+  postal_code: import.meta.env.VITE_SENDER_CEP || '01310-100',
+  address: import.meta.env.VITE_SENDER_ADDRESS || 'Avenida Paulista',
+  number: import.meta.env.VITE_SENDER_NUMBER || '1000',
+  complement: import.meta.env.VITE_SENDER_COMPLEMENT || 'Sala 42',
+  district: import.meta.env.VITE_SENDER_DISTRICT || 'Bela Vista',
+  city: import.meta.env.VITE_SENDER_CITY || 'São Paulo',
+  state_abbr: import.meta.env.VITE_SENDER_UF || 'SP',
 };
+
+export const DEFAULT_API_TOKEN = import.meta.env.VITE_MELHOR_ENVIO_TOKEN || '';
+export const DEFAULT_ENV = import.meta.env.VITE_MELHOR_ENVIO_ENV || 'sandbox';
 
 export const DEFAULT_PACKAGE = {
   height: 2, // cm (envelope bolha padrão para singles / cartas)
@@ -34,3 +37,4 @@ export const MOCK_CSV_ORDERS = `Pedido;Destinatário;CPF;Telefone;CEP;Endereço;
 #LP-8923;Rafael Albuquerque;456.789.123-55;31988776655;30130-100;Avenida Afonso Pena;1500;Bloco B;Centro;Belo Horizonte;MG;85.50
 #LP-8924;Camila Souza Mendes; ;41977665544;80020-310;Rua Marechal Deodoro;100;Conj 12;Centro;Curitiba;PR;320.00
 #LP-8925;Gabriel Duarte Lima;321.654.987-11; ;01001-000;Praça da Sé;S/N;;Sé;São Paulo;SP;65.00`;
+

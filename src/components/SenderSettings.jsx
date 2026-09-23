@@ -159,13 +159,23 @@ export function SenderSettings({
           </div>
         </div>
 
-        <div className="pt-2 flex justify-end">
+        <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-t border-slate-800/80">
+          <span className="text-[11px] text-emerald-400/90 flex items-center space-x-1.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Salvo automaticamente no navegador (localStorage) ao digitar</span>
+          </span>
           <button
             type="button"
-            onClick={onSaveToast}
-            className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition"
+            onClick={() => {
+              window.localStorage.setItem('poke_me_sender', JSON.stringify(sender));
+              window.localStorage.setItem('poke_me_token', apiToken);
+              window.localStorage.setItem('poke_me_env', environment);
+              window.localStorage.setItem('poke_me_package', JSON.stringify(packageSettings));
+              onSaveToast();
+            }}
+            className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition shadow-md shadow-amber-500/20"
           >
-            Salvar Remetente
+            Salvar Dados Agora
           </button>
         </div>
       </div>
@@ -209,9 +219,18 @@ export function SenderSettings({
             </div>
 
             <div>
-              <label className="block text-slate-300 font-medium mb-1">
-                Personal Access Token (Bearer)
-              </label>
+              <div className="flex items-center justify-between mb-1">
+                <label className="block text-slate-300 font-medium">
+                  Personal Access Token (Bearer)
+                </label>
+                {apiToken && apiToken.trim().length > 0 ? (
+                  <span className="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+                    ✓ Token salvo no navegador
+                  </span>
+                ) : (
+                  <span className="text-[10px] text-slate-500">Modo Simulação ativo</span>
+                )}
+              </div>
               <textarea
                 rows={3}
                 value={apiToken}
@@ -219,9 +238,22 @@ export function SenderSettings({
                 placeholder="Cole aqui seu token gerado no Melhor Envio (ou deixe vazio para modo simulação)"
                 className="w-full bg-slate-800 border border-slate-700 rounded-xl p-2.5 text-slate-200 font-mono text-[11px] focus:outline-none focus:border-amber-500"
               />
-              <p className="text-[11px] text-slate-500 mt-1">
-                Gerado em: Painel ME &gt; Integrações &gt; Gerar Token
-              </p>
+              <div className="flex items-center justify-between mt-2">
+                <p className="text-[11px] text-slate-500">
+                  Gerado em: Painel ME &gt; Integrações &gt; Gerar Token
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    window.localStorage.setItem('poke_me_token', apiToken);
+                    window.localStorage.setItem('poke_me_env', environment);
+                    onSaveToast();
+                  }}
+                  className="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 font-semibold text-[11px] transition"
+                >
+                  Salvar API
+                </button>
+              </div>
             </div>
           </div>
         </div>

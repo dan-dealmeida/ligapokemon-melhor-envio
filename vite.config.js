@@ -8,6 +8,8 @@ export default defineConfig({
     tailwindcss(),
   ],
   server: {
+    port: 5173,
+    strictPort: true,
     proxy: {
       '/api-me-sandbox': {
         target: 'https://sandbox.melhorenvio.com.br/api/v2',

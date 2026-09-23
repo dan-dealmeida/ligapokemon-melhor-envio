@@ -189,3 +189,4 @@ export const exportMelhorEnvioCSV = ({ orders, sender, packageSettings }) => {
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 };
+

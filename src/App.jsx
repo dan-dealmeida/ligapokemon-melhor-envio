@@ -4,6 +4,8 @@ import {
   SERVICES,
   DEFAULT_SENDER,
   DEFAULT_PACKAGE,
+  DEFAULT_API_TOKEN,
+  DEFAULT_ENV,
   MOCK_CSV_ORDERS,
 } from './constants/shipping';
 import { useLocalStorage } from './hooks/useLocalStorage';
@@ -24,8 +26,8 @@ export default function App() {
 
   // Persisted Sender & API Configuration
   const [sender, setSender] = useLocalStorage('poke_me_sender', DEFAULT_SENDER);
-  const [apiToken, setApiToken] = useLocalStorage('poke_me_token', '');
-  const [environment, setEnvironment] = useLocalStorage('poke_me_env', 'sandbox');
+  const [apiToken, setApiToken] = useLocalStorage('poke_me_token', DEFAULT_API_TOKEN);
+  const [environment, setEnvironment] = useLocalStorage('poke_me_env', DEFAULT_ENV);
   const [packageSettings, setPackageSettings] = useLocalStorage(
     'poke_me_package',
     DEFAULT_PACKAGE
@@ -346,7 +348,9 @@ export default function App() {
             setEnvironment={setEnvironment}
             packageSettings={packageSettings}
             setPackageSettings={setPackageSettings}
-            onSaveToast={() => showToast('Dados do remetente salvos no navegador!', 'success')}
+            onSaveToast={() =>
+              showToast('Remetente, Chave de API e Cubagem salvos no navegador!', 'success')
+            }
           />
         )}
       </main>

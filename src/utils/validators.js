@@ -40,3 +40,4 @@ export const parsePrice = (valStr) => {
   const parsed = parseFloat(clean);
   return isNaN(parsed) ? 20.0 : parsed;
 };
+
