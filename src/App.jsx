@@ -273,7 +273,7 @@ export default function App() {
   }, [orders]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
+    <div className="min-h-screen bg-transparent text-zinc-100 flex flex-col font-sans selection:bg-red-600 selection:text-white">
       <Header activeTab={activeTab} setActiveTab={setActiveTab} ordersCount={orders.length} />
 
       <Toast activeToast={activeToast} />
@@ -291,11 +291,11 @@ export default function App() {
             />
 
             {corsNoticeVisible && (
-              <div className="p-4 rounded-2xl bg-amber-950/30 border border-amber-500/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-amber-200">
+              <div className="p-4 rounded-2xl bg-red-950/30 border border-red-500/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-red-200">
                 <div className="flex items-start space-x-3">
-                  <ShieldCheck className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                  <ShieldCheck className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-amber-300 text-sm font-semibold">
+                    <strong className="block text-red-300 text-sm font-semibold">
                       Dica de Integração com o Melhor Envio:
                     </strong>
                     O navegador bloqueou a requisição direta por política de segurança (CORS da
@@ -306,7 +306,7 @@ export default function App() {
                 </div>
                 <button
                   onClick={handleDownloadMelhorEnvioCSV}
-                  className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold shrink-0 transition flex items-center space-x-1.5 shadow-md shadow-amber-500/20"
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold shrink-0 transition flex items-center space-x-1.5 shadow-md shadow-red-600/25"
                 >
                   <Download className="w-4 h-4" />
                   <span>Baixar Planilha ME</span>
@@ -361,10 +361,10 @@ export default function App() {
         onSave={handleSaveEditOrder}
       />
 
-      <footer className="border-t border-slate-800/80 bg-slate-950 py-4 text-center text-xs text-slate-500">
+      <footer className="border-t border-red-950/60 bg-zinc-950/90 py-4 text-center text-xs text-zinc-500">
         <p>
-          LigaPokemon / LigaMagic ➔ Melhor Envio Bridge • Feito para agilizar o envio de singles e
-          produtos colecionáveis.
+          <span className="text-red-500 font-bold">R</span> • Equipe Rocket TCG Logistics •
+          LigaPokemon / LigaMagic ➔ Melhor Envio • Decolando na velocidade da luz!
         </p>
       </footer>
     </div>

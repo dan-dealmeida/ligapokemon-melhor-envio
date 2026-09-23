@@ -20,7 +20,15 @@ export function CsvUploader({ onContentLoaded, onLoadMock, hasOrders, onClearOrd
   };
 
   return (
-    <div className="bg-slate-900/70 border-2 border-dashed border-slate-700/80 hover:border-amber-500/60 transition-colors rounded-2xl p-6 sm:p-8 text-center relative group">
+    <div className="bg-zinc-900/80 border-2 border-dashed border-red-900/60 hover:border-red-500/80 transition-all rounded-2xl p-6 sm:p-8 text-center relative group overflow-hidden shadow-xl shadow-black/40">
+      {/* Giant Background Team Rocket "R" Watermark */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute -right-4 -bottom-10 text-[160px] font-black leading-none text-red-600/[0.06] group-hover:text-red-600/[0.11] transition-colors font-sans"
+      >
+        R
+      </div>
+
       <input
         ref={fileInputRef}
         type="file"
@@ -28,16 +36,16 @@ export function CsvUploader({ onContentLoaded, onLoadMock, hasOrders, onClearOrd
         onChange={handleFileUpload}
         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
       />
-      <div className="flex flex-col items-center justify-center space-y-3">
-        <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center group-hover:scale-105 transition transform">
+      <div className="relative flex flex-col items-center justify-center space-y-3">
+        <div className="w-14 h-14 rounded-2xl bg-red-600/15 border border-red-500/40 text-red-400 flex items-center justify-center group-hover:scale-105 group-hover:bg-red-600/25 transition transform shadow-lg shadow-red-950/50">
           <UploadCloud className="w-7 h-7" />
         </div>
         <div>
-          <p className="text-base font-semibold text-white">
-            Arraste o arquivo CSV da LigaPokemon aqui ou clique para selecionar
+          <p className="text-base font-bold text-white">
+            Arraste o arquivo CSV da LigaPokemon para o QG Rocket ou clique para selecionar
           </p>
-          <p className="text-xs text-slate-400 mt-1">
-            Detecta automaticamente colunas separadas por ponto-e-vírgula (;) ou vírgula (,)
+          <p className="text-xs text-zinc-400 mt-1">
+            Rastreamento automático de colunas (; ou ,) • Mini Envios, PAC, SEDEX e Jadlog
           </p>
         </div>
 
@@ -45,20 +53,20 @@ export function CsvUploader({ onContentLoaded, onLoadMock, hasOrders, onClearOrd
           <button
             type="button"
             onClick={onLoadMock}
-            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 transition flex items-center space-x-1.5"
+            className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-zinc-800 hover:bg-zinc-700 text-red-300 border border-red-500/40 transition flex items-center space-x-1.5 shadow-sm"
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span>Carregar Pedidos de Teste (Mock TCG)</span>
+            <Sparkles className="w-3.5 h-3.5 text-red-400" />
+            <span>Recrutar Pedidos de Teste (Mock Equipe Rocket)</span>
           </button>
 
           {hasOrders && (
             <button
               type="button"
               onClick={onClearOrders}
-              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-950/40 hover:bg-rose-900/50 text-rose-300 border border-rose-800/40 transition flex items-center space-x-1"
+              className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-rose-950/50 hover:bg-rose-900/60 text-rose-300 border border-rose-800/50 transition flex items-center space-x-1"
             >
               <Trash2 className="w-3.5 h-3.5" />
-              <span>Limpar Lista</span>
+              <span>Ejetar Lista</span>
             </button>
           )}
         </div>

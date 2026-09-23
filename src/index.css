@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #070709;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(220, 38, 38, 0.14) 0%, transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(185, 28, 28, 0.1) 0%, transparent 45%);
+    background-attachment: fixed;
+  }
+}
+
+/* Custom Team Rocket Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
